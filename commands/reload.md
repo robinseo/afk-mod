@@ -13,7 +13,7 @@ Feature List JSON 파일을 다시 읽어 메모리 상태를 갱신합니다.
 
 ## 사용 예시
 
-```
+````
 사용자> /afk:reload
 
 클로드코드> Feature List를 갱신하고 있습니다...
@@ -35,7 +35,7 @@ Feature List JSON 파일을 다시 읽어 메모리 상태를 갱신합니다.
 - ...
 
 상태를 .afk-mod/state.json에 저장했습니다.
-```
+````
 
 ## JSON 파일 위치
 

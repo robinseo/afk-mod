@@ -243,7 +243,7 @@ Test Writer Agent는 다음 순서로 결과를 출력합니다:
 ### 3. 테스트 실행 결과
 
 ```markdown
-```
+````
 FAIL src/services/__tests__/IssueService.test.ts
   IssueService.createIssue
     ✗ should create an issue with valid input
@@ -252,10 +252,10 @@ FAIL src/services/__tests__/IssueService.test.ts
     ✗ should throw error when title is empty
       ReferenceError: IssueService is not defined
     ...
-```
+````
 
 ✓ **RED 단계 완료**: 테스트가 예상대로 실패했습니다.
-```
+````
 
 ### 4. state.json 업데이트
 

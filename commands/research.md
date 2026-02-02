@@ -8,7 +8,7 @@
 
 **가장 먼저 프로젝트 설계가 완료되었는지 확인합니다.**
 
-```
+````
 클로드코드> Feature 1.1.1: 이슈 생성 리서치를 시작합니다.
 
 프로젝트 설계 상태를 확인 중...
@@ -27,7 +27,7 @@
 - Architecture: 2-tier (Frontend + Backend + Database)
 - Frontend: React + Vite + shadcn/ui
 - Backend: FastAPI + PostgreSQL
-```
+````
 
 ### 1단계: Feature 확인
 
@@ -39,7 +39,7 @@
 
 Researcher Agent를 호출하여 다음 분석을 수행합니다:
 
-```
+````
 클로드코드> Feature 1.1.1에 대한 리서치를 시작합니다.
 
 ---
@@ -50,7 +50,7 @@ Researcher Agent를 호출하여 다음 분석을 수행합니다:
 
 #### 현재 파일 구조
 
-\```
+```
 web/
 ├── src/
 │   ├── components/
@@ -64,7 +64,7 @@ api/
 ├── app/
 │   └── api/
 │       └── issues.py
-\```
+```
 
 #### 관련 컴포넌트/파일
 - **Frontend**: `IssueForm`, `IssueList`, `IssueService`
@@ -211,7 +211,7 @@ describe('IssueService', () => {
 ✅ Research 완료.
 
 이제 `/afk:start 1.1.1`로 TDD 사이클을 시작하세요.
-```
+````
 
 ## Researcher Agent 역할
 
@@ -257,8 +257,8 @@ Researcher Agent는 다음 순서로 결과를 출력합니다:
 
 Research 완료 후 다음 단계 안내:
 
-```
+````
 ✅ Research 완료.
 
 이제 `/afk:start <feature-id>`로 TDD 사이클을 시작하세요.
-```
+````

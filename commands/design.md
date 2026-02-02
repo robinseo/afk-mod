@@ -21,7 +21,7 @@ AFK-Mod 플러그인 설치 후 다음 3가지 방법으로 Feature List를 준�
 
 ### 흐름도
 
-```mermaid
+````mermaid
 flowchart TD
     A["afk:design 호출"] --> B{"project_design.json<br/>존재?"}
     B -->|예| C[기존 설계 표시]
@@ -40,11 +40,11 @@ flowchart TD
     M -->|예| N["project_design.json 저장"]
     M -->|아니오| I
     N --> O["state.json 업데이트<br/>projectDesignStatus completed"]
-```
+````
 
 ### 1단계: Feature List 분석
 
-```
+````
 클로드코드> 프로젝트 설계를 시작합니다.
 
 ## Step 1: Feature List 분석
@@ -84,11 +84,11 @@ sample-feature-list.json를 분석 중...
 - 복잡한 UI (칸반 보드, 드래그앤드롭, 대시보드)
 - 데이터 시각화 (진행률, 차트)
 - 협업 기능 (담당자 할당, 알림)
-```
+````
 
 ### 2단계: 아키텍처 제안
 
-```
+````
 클로드코드> 위 분석을 바탕으로 아키텍처를 제안합니다.
 
 ## Step 2: 아키텍처 결정
@@ -123,11 +123,11 @@ Frontend --> API Gateway --> Service --> Database
 사용자> 1
 
 클로드코드> 2-tier 아키텍처로 진행합니다.
-```
+````
 
 ### 3단계: 기술 스택 결정
 
-```
+````
 클로드코드> 기술 스택을 결정합니다.
 
 ## Step 3: Frontend 기술 스택
@@ -178,11 +178,11 @@ UI 라이브러리를 선택하세요:
 사용자> 1
 
 클로드코드> FastAPI + PostgreSQL으로 선택합니다.
-```
+````
 
 ### 4단계: 최종 설계 확인
 
-```
+````
 클로드코드> 위 분석을 바탕으로 최종 설계를 제안합니다.
 
 ## 최종 설계 확인
@@ -261,11 +261,11 @@ issue-tracker/
 - .afk-mod/state.json 업데이트 (projectDesignStatus: completed)
 
 이제 /afk:feature-list로 Feature를 확인하고, /afk:start로 개발을 시작할 수 있습니다!
-```
+````
 
 ## 설계 수정 (이미 설계가 있는 경우)
 
-```
+````
 사용자> /afk:design
 
 클로드코드> 프로젝트 설계가 이미 존재합니다.
@@ -294,42 +294,42 @@ flowchart LR
 
 클로드코드> 설계를 다시 시작합니다...
 [새로운 설계 프로세스 시작]
-```
+````
 
 ## /afk:start 실행 전 체크
 
-```
+````
 사용자> /afk:start 1.1.1
 
 클로드코드> 프로젝트 설계가 완료되지 않았습니다.
 먼저 /afk:design으로 프로젝트를 설계해주세요.
 
 (Hint: project-design.json이 존재하고, state.json.projectDesignStatus가 "completed"여야 합니다)
-```
+````
 
 ## state.json 업데이트
 
 ### 설계 시작 시
 
-```json
+````json
 {
   "projectDesignStatus": "in_progress",
   "lastUpdated": "2025-02-02T10:00:00Z"
 }
-```
+````
 
 ### 설계 완료 시
 
-```json
+````json
 {
   "projectDesignStatus": "completed",
   "lastUpdated": "2025-02-02T12:00:00Z"
 }
-```
+````
 
 ## project-design.json 스키마
 
-```json
+````json
 {
   "project": {
     "name": "Issue Tracker",
@@ -433,7 +433,7 @@ flowchart LR
     }
   ]
 }
-```
+````
 
 ## 에이전트 참조
 
@@ -460,7 +460,7 @@ UX Designer, CTO, Researcher Agent는 `/afk:start` 실행 시 `project-design.js
 
 ### 변환 로직
 
-```
+````
 클로드코드> CSV 파일을 감지했습니다. JSON으로 변환합니다.
 
 ## 변환 중...
@@ -490,7 +490,7 @@ UX Designer, CTO, Researcher Agent는 `/afk:start` 실행 시 `project-design.js
 | System Outcome | systemOutcome |
 | Dependencies | 제거됨 (parent_id로 표현) |
 | Acceptance Criteria | acceptanceCriteria (array) |
-```
+````
 
 ---
 
@@ -500,7 +500,7 @@ Feature List 파일이 없는 경우, 대화형으로 Feature 목록을 생성�
 
 ### 대화형 생성 흐름
 
-```
+````
 사용자> /afk:design
 
 클로드코드> Feature List 파일을 찾을 수 없습니다.
@@ -624,11 +624,11 @@ Acceptance Criteria (쉼표로 구분):
 ✅ .afk-mod/feature-list.json에 3개의 Feature를 저장했습니다.
 이제 프로젝트 설계를 시작합니다...
 [기존 설계 프로세스 계속]
-```
+````
 
 ### JSON 스키마
 
-```json
+````json
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
@@ -668,4 +668,4 @@ Acceptance Criteria (쉼표로 구분):
     }
   }
 }
-```
+````

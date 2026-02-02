@@ -85,23 +85,23 @@ classDiagram
         +getIssue(id)
         +updateIssue(id, data)
         +deleteIssue(id)
-        -validateIssue(data)
+        "-validateIssue(data)"
     }
 
     class IssueAPI {
-        +POST /issues
-        +GET /issues/{id}
-        +PATCH /issues/{id}
-        +DELETE /issues/{id}
+        "+POST /issues"
+        "+GET /issues/:id"
+        "+PATCH /issues/:id"
+        "+DELETE /issues/:id"
     }
 
     class Database {
-        +issues table
-        +activity_log table
+        "+issues table"
+        "+activity_log table"
     }
 
     class ActivityLogService {
-        +logActivity(issue_id, action)
+        "+logActivity(issue_id, action)"
     }
 
     IssueController --> IssueService
@@ -120,14 +120,14 @@ sequenceDiagram
     participant DB as Database
     participant LOG as ActivityLogService
 
-    UI->>API: POST /issues {title, description, priority, assignee}
+    UI->>API: "POST /issues" (title, description, priority, assignee)
     API->>SVC: createIssue(data)
     SVC->>SVC: validateIssue(data)
-    SVC->>DB: INSERT INTO issues
+    SVC->>DB: "INSERT INTO issues"
     DB-->>SVC: issue_id
     SVC->>LOG: logActivity(issue_id, "created")
-    SVC-->>API: {issue_id, status: "created"}
-    API-->>UI: 201 Created
+    SVC-->>API: (issue_id, status: "created")
+    API-->>UI: "201 Created"
 ```
 
 ### 4. 데이터 모델

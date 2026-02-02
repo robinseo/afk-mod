@@ -144,7 +144,7 @@ FAIL src/services/__tests__/IssueService.test.ts
 \```
 
 ✓ RED 단계 완료: 테스트가 예상대로 실패했습니다.
-```
+````
 
 ### STAGE 5: IMPLEMENTATION (GREEN Phase)
 
@@ -153,7 +153,7 @@ FAIL src/services/__tests__/IssueService.test.ts
 - 테스트를 통과시키는 최소한의 코드 작성
 - 점진적 구현
 
-```
+````
 클로드코드> ## GREEN 단계: 최소 구현
 
 Implementer Agent가 최소 구현을 작성합니다.
@@ -168,7 +168,7 @@ PASS src/services/__tests__/IssueService.test.ts
 \```
 
 ✓ GREEN 단계 완료: 모든 테스트 통과
-```
+````
 
 ### STAGE 6: TEST VERIFICATION
 
@@ -178,7 +178,7 @@ PASS src/services/__tests__/IssueService.test.ts
 - ALL GREEN 확인
 - 실패 시 Stage 5로 회귀 (최대 3회)
 
-```
+````
 클로드코드> ## TEST VERIFICATION
 
 전체 테스트 스위트 실행 결과:
@@ -191,7 +191,7 @@ All tests passed! (15/15)
 \```
 
 ✓ TEST VERIFICATION 완료: ALL GREEN 확인
-```
+````
 
 ### Human-in-the-Loop 지점
 

@@ -430,7 +430,7 @@ sequenceDiagram
 
 ## GREEN 단계 출력
 
-```markdown
+````markdown
 ## GREEN 단계: 최소 구현
 
 테스트 실패 분석:
@@ -450,11 +450,11 @@ PASS src/services/__tests__/IssueService.test.ts
 ```
 
 ✓ **GREEN 단계 완료**: 모든 테스트 통과
-```
+````
 
 ## REFACTOR 단계 출력
 
-```markdown
+````markdown
 ## REFACTOR 단계: 코드 정리
 
 리팩토링 항목:
@@ -478,7 +478,7 @@ PASS src/services/__tests__/IssueService.test.ts
 ## Task 1 완료
 
 TDD 사이클이 완료되었습니다. 다음 Task로 넘어갈까요?
-```
+````
 
 ---
 

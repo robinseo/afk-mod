@@ -80,7 +80,7 @@ PASS src/services/__tests__/IssueService.test.ts
   ✓ should throw error when description is empty
   ✓ should allow duplicate titles
 \```
-```
+````
 
 ## TDD 사이클 재개
 

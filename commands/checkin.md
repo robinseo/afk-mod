@@ -45,19 +45,19 @@
 
 `state.json`의 `currentTask`와 `tddPhase`를 확인하여 현재 진행 중인 Task와 TDD 단계를 표시합니다.
 
-```
+````
 #### 진행 중인 Task
 
 **Task 1**: 이슈 생성 기능 구현
 상태: 🔄 REFACTOR 진행 중
 
 #### TDD 사이클 상태
-\```
+```
 ✅ RED    → 테스트 작성 완료 (10:30)
 ✅ GREEN  → 최소 구현 완료 (10:32)
 🔄 REFACTOR → 코드 정리 진행 중
-\```
 ```
+````
 
 ### 4단계: 마지막 작업 내역
 
@@ -149,24 +149,24 @@
 
 ### Task 완료 상태
 
-```
+````
 ## 🚀 다음 단계
 
 ### Task 1 완료! 축하합니다. 🎉
 
 모든 TDD 단계가 완료되었습니다.
-\```
+```
 ✅ RED 완료
 ✅ GREEN 완료
 ✅ REFACTOR 완료
-\```
+```
 
 다음으로 넘어갈 Task:
 - **Task 2**: UI 폼 컴포넌트 생성 (pending)
 
 1. **다음 Task 시작** - Task 2 시작
 2. **전체 보기** - 모든 Task 목록 보기
-```
+````
 
 ### Feature 시작 전 상태
 
@@ -214,7 +214,7 @@
 
 ## 출력 형식 요약
 
-```mermaid
+````mermaid
 flowchart TD
     A["/afk:checkin"] --> B{state.json<br/>존재?}
     B -->|아니오| C[새로 시작 안내]
@@ -225,7 +225,7 @@ flowchart TD
     F --> G{currentTask<br/>있음?}
 
     G -->|아니오| H[Feature 시작 전 안내]
-    H --> I[/afk:research 권장]
+    H --> I["/afk:research 권장"]
 
     G -->|예| J[TDD Phase 확인]
     J --> K{Phase 상태}
@@ -239,13 +239,13 @@ flowchart TD
     M --> P
     N --> P
     O --> P
-```
+````
 
 ## 사용 예시
 
 ### 예시 1: REFACTOR 진행 중
 
-```
+````
 사용자> /afk:checkin
 
 클로드코드> 👋 다시 오셨군요! 현재 작업 상황을 확인하겠습니다.
@@ -280,7 +280,7 @@ REFACTOR 단계를 완료하고 다음 Task로 넘어갈까요?
 1. **계속하기** - REFACTOR 완료 후 Task 2로 진행
 2. **검토하기** - 현재 코드 먼저 검토
 3. **상태보기** - 전체 Task 목록 보기
-```
+````
 
 ### 예시 2: 새로운 세션 (진행 중인 작업 없음)
 
@@ -301,7 +301,7 @@ REFACTOR 단계를 완료하고 다음 Task로 넘어갈까요?
 
 ### 예시 3: Task 완료 후
 
-```
+````
 사용자> /afk:checkin
 
 클로드코드> 👋 다시 오셨군요!
@@ -333,7 +333,7 @@ REFACTOR 단계를 완료하고 다음 Task로 넘어갈까요?
 
 1. **다음 Task 시작** - Task 2 시작
 2. **전체 보기** - 모든 Task 목록 보기
-```
+````
 
 ## Human-in-the-Loop
 
