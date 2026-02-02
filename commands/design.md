@@ -1,3 +1,13 @@
+---
+description: "Feature의 기술적 설계를 담당하는 CTO Agent를 호출합니다. 프로젝트 설계를 수행합니다."
+argument-hint: "[없음]"
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+---
+
 # /afk:design
 
 > **NOTE**: 이 파일의 모든 예시 대화는 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.

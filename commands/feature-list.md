@@ -1,3 +1,11 @@
+---
+description: "Feature List와 진척도를 표시하고 관리합니다."
+argument-hint: "[list|add|remove] [--status=PENDING|IN_PROGRESS|DONE] [--parent=<id>]"
+allowed-tools:
+  - Read
+  - Bash
+---
+
 # /afk:feature-list
 
 > **NOTE**: 이 파일의 모든 예시 대화는 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.

@@ -1,3 +1,13 @@
+---
+description: "Feature를 시작하고 자동 TDD 사이클을 실행합니다. RED-GREEN-REFACTOR 사이클을 자동화합니다."
+argument-hint: "<feature-id>"
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+---
+
 # /afk:start <feature-id>
 
 > **NOTE**: 이 파일의 모든 예시 대화는 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.

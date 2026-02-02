@@ -1,3 +1,20 @@
+---
+name: ux-designer
+description: |
+  UX/UI 디자인 전문가. Feature의 사용자 경험을 설계할 때 호출합니다.
+
+  <trigger_conditions>
+  - 복잡한 Feature 분석 시 (/afk:start)
+  - 새 Feature 추가로 디자인 필요 시
+  - 사용자가 명시적으로 UX 설계 요청 시
+  </trigger_conditions>
+model: inherit
+tools:
+  - Read
+  - Write
+  - Edit
+---
+
 # UX Designer Agent
 
 > **NOTE**: 이 파일의 모든 코드 예시와 설명은 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.

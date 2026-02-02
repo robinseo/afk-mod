@@ -1,3 +1,15 @@
+---
+description: "Feature 구현을 위한 프로젝트 구조와 기존 코드 패턴을 분석합니다. Researcher Agent를 호출합니다."
+argument-hint: "<feature-id>"
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+disallowedTools:
+  - Write
+  - Edit
+---
+
 # /afk:research <feature-id>
 
 > **NOTE**: 이 파일의 모든 예시 대화는 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.

@@ -1,3 +1,20 @@
+---
+name: test-writer
+description: |
+  TDD 사이클의 RED 단계 전문 Agent. 실패하는 테스트를 먼저 작성합니다.
+
+  <trigger_conditions>
+  - TDD 사이클 시작 시 (/afk:start 실행 후 자동 호출)
+  - RED 단계 재시도 (테스트가 너무 쉬운 경우)
+  </trigger_conditions>
+model: inherit
+tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+---
+
 # Test Writer Agent
 
 > **NOTE**: 이 파일의 모든 코드 예시와 설명은 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.

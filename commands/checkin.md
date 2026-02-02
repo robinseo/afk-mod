@@ -1,3 +1,9 @@
+---
+description: "중단된 작업을 다시 시작할 때 현재 상황을 파악하고 다음 단계를 안내합니다."
+argument-hint: "[없음]"
+disable-model-invocation: true
+---
+
 # /afk:checkin
 
 > **NOTE**: 이 파일의 모든 예시 대화는 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.

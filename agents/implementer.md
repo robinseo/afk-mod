@@ -1,3 +1,20 @@
+---
+name: implementer
+description: |
+  TDD 사이클의 GREEN, REFACTOR 단계 전문 Agent. 최소 구현으로 테스트를 통과하고 코드를 정리합니다.
+
+  <trigger_conditions>
+  - Test Writer가 RED 단계를 완료한 후 자동 호출
+  - GREEN 단계 완료 후 REFACTOR 단계 자동 호출
+  </trigger_conditions>
+model: inherit
+tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+---
+
 # Implementer Agent
 
 > **NOTE**: 이 파일의 모든 코드 예시와 설명은 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.

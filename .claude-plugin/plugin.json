@@ -1,26 +1,9 @@
 {
   "name": "afk-mod",
   "version": "0.2.0",
-  "description": "TDD 자동화 워크플로우 플러그인 - RED/GREEN/REFACTOR 사이클 자동화",
+  "description": "AFK-Squad TDD 기반 Feature 개발 워크플로우 플러그인",
   "author": "AFK Team",
-  "commands": [
-    "design",
-    "feature-list",
-    "checkin",
-    "research",
-    "task",
-    "start",
-    "reload",
-    "extract"
-  ],
-  "agents": [
-    "ux-designer",
-    "cto",
-    "researcher",
-    "test-writer",
-    "implementer"
-  ],
-  "skills": [
-    "tdd-cycle"
-  ]
+  "commands": ["commands/"],
+  "agents": ["agents/"],
+  "skills": ["skills/"]
 }

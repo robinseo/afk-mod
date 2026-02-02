@@ -1,3 +1,11 @@
+---
+description: "Feature List JSON 파일을 다시 읽어 메모리 상태를 갱신합니다."
+argument-hint: "[--path=/path/to/feature-list.json]"
+allowed-tools:
+  - Read
+  - Bash
+---
+
 # /afk:reload
 
 > **NOTE**: 이 파일의 모든 예시 대화는 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.

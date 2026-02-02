@@ -1,3 +1,21 @@
+---
+name: tdd-cycle
+description: |
+  Test-Driven Development의 Red-Green-Refactor 사이클을 따릅니다.
+
+  <trigger_phrases>
+  - "TDD 사이클 시작"
+  - "테스트 먼저 작성"
+  - "RED-GREEN-REFACTOR"
+  - "테스트 주도 개발"
+  </trigger_phrases>
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Bash
+---
+
 # TDD Cycle
 
 > **NOTE**: 이 파일의 모든 코드 예시와 설명은 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.

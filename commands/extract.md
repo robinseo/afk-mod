@@ -1,3 +1,13 @@
+---
+description: "기존 코드베이스를 분석하여 Feature List를 추출합니다."
+argument-hint: "[--depth=quick|full] [--commits=N]"
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+---
+
 # /afk:extract
 
 > **NOTE**: 이 파일의 모든 예시 대화는 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.

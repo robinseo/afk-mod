@@ -36,18 +36,50 @@ flowchart TD
 
 ### 1. 플러그인 설치
 
-Claude Code 설정 파일에 추가:
+**로컬 플러그인으로 설치:**
+
+```bash
+# 방법 1: 플러그인 디렉토리로 Claude Code 실행
+cd /path/to/your-project
+claude --plugin-dir /Users/robin/repos/afk-mod
+
+# 방법 2: 전역 설치 (선택)
+mkdir -p ~/.claude/plugins
+cp -r /Users/robin/repos/afk-mod ~/.claude/plugins/afk-mod
+
+# 방법 3: 심볼릭 링크 (권장 - 개발 중 업데이트 즉시 반영)
+ln -s /Users/robin/repos/afk-mod ~/.claude/plugins/afk-mod
+```
+
+**Claude Code 설정 파일에 추가 (선택):**
 
 ```json
 {
   "plugins": [
     {
       "name": "afk-mod",
-      "marketplace": "https://github.com/robinseo/afk-mod"
+      "path": "/Users/robin/repos/afk-mod"
     }
   ]
 }
 ```
+
+### 2. 플러그인 확인
+
+```bash
+# /help로 명령어가 나타나는지 확인
+/help
+```
+
+다음 명령어들이 표시되어야 합니다:
+- `/afk:checkin` - 중단된 작업 재개
+- `/afk:design` - 프로젝트 설계
+- `/afk:feature-list` - Feature 목록 관리
+- `/afk:research <id>` - 프로젝트 구조 분석
+- `/afk:start <id>` - TDD 사이클 시작
+- `/afk:task` - Task 목록 관리
+- `/afk:reload` - Feature List 갱신
+- `/afk:extract` - 코드베이스에서 Feature 추출
 
 ### 2. Feature List 준비
 

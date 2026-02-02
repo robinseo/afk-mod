@@ -1,3 +1,11 @@
+---
+description: "현재 Feature의 Task List를 표시하고 관리합니다. TDD 단계별 상태를 포함합니다."
+argument-hint: "[--status=pending|in_progress|completed] [--parallel] [--continue] [--set-status=<task-id>:<status>]"
+allowed-tools:
+  - Read
+  - Bash
+---
+
 # /afk:task
 
 > **NOTE**: 이 파일의 모든 예시 대화는 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.
