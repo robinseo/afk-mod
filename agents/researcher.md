@@ -1,5 +1,8 @@
 # Researcher Agent
 
+> **NOTE**: 이 파일의 모든 코드 예시와 설명은 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.
+> 실제 사용 시, 프로젝트의 도메인과 요구사항에 맞게 용어와 구조를 수정하여 적용하세요.
+
 프로젝트 구조와 기존 코드 패턴을 분석하는 전문가입니다.
 
 ## 역할
@@ -47,7 +50,9 @@ Researcher Agent는 `.afk-mod/project-design.json`의 다음 정보를 참조합
 
 ### 1. 프로젝트 구조 파악
 
-```
+> **예시: Issue Tracker 프로젝트**
+
+````
 Feature: 1.1.1 이슈 생성
 
 #### 현재 파일 구조
@@ -69,16 +74,18 @@ api/
 - **Frontend**: `IssueForm`, `IssueList`, `IssueService`
 - **Backend**: `/api/issues` 엔드포인트
 - **Database**: `issues` 테이블
-```
+````
 
 ### 2. 기존 코드 패턴 분석
+
+> **예시: Issue Tracker 프로젝트**
 
 #### Service Layer 패턴
 - API 호출은 `Service` 클래스에서 담당
 - 메서드명: `createIssue()`, `getIssues()`, `updateIssue()`
 - 에러 처리: `ValidationError` 커스텀 클래스 사용
 
-```typescript
+````typescript
 // 기존 패턴 예시
 class IssueService {
   async createIssue(input: CreateIssueInput): Promise<Issue> {
@@ -99,20 +106,20 @@ class IssueService {
     return response.json();
   }
 }
-```
+````
 
 #### State Management 패턴
 - 서버 상태: React Query (`useQuery`, `useMutation`)
 - 로컬 상태: React `useState`
 - 폼 상태: React Hook Form
 
-```typescript
+````typescript
 // React Query 패턴
 const { data: issues } = useQuery(['issues'], IssueService.getIssues);
 const createMutation = useMutation(IssueService.createIssue, {
   onSuccess: () => queryClient.invalidateQueries(['issues'])
 });
-```
+````
 
 #### Error Handling 패턴
 - 검증 에러: `ValidationError` 클래스
@@ -124,7 +131,7 @@ const createMutation = useMutation(IssueService.createIssue, {
 - Backend: Pytest
 - 테스트 파일 위치: `__tests__/` 또는 `test_` 접두사
 
-```typescript
+````typescript
 // 테스트 패턴 예시
 describe('IssueService', () => {
   it('should create an issue with valid input', async () => {
@@ -137,10 +144,13 @@ describe('IssueService', () => {
       .rejects.toThrow(ValidationError);
   });
 });
-```
+````
 
 ### 3. 의존성 확인
 
+> **예시: Issue Tracker 프로젝트**
+
+````
 #### Frontend 의존성
 - **Framework**: React 18.2.0
 - **Build**: Vite 4.3.0
@@ -154,9 +164,13 @@ describe('IssueService', () => {
 - **ORM**: SQLAlchemy 2.0.0
 - **Database**: PostgreSQL (psycopg2 2.9.0)
 - **Testing**: pytest 7.3.0
+````
 
 ### 4. 구현 난이도 평가
 
+> **예시: Issue Tracker 프로젝트**
+
+````
 #### 복잡도: 중간
 
 **예상 소요 시간**: 2시간
@@ -172,9 +186,13 @@ describe('IssueService', () => {
 - ✅ React Query 설치됨
 - ✅ shadcn/ui 컴포넌트 사용 가능
 - ⚠️ `ValidationError` 클래스 import 경로 확인 필요
+````
 
 ### 5. 추천 접근 방식
 
+> **예시: Issue Tracker 프로젝트**
+
+````
 #### 1. 기존 코드 확장 전략
 - `IssueService` 클래스에 `createIssue()` 메서드 추가
 - 기존 `IssueForm` 컴포넌트 재사용
@@ -189,11 +207,15 @@ describe('IssueService', () => {
 2. Frontend Service 메서드 구현 (Vitest로 테스트)
 3. UI 컴포넌트 연동
 4. 전체 통합 테스트
+````
 
 ### 6. 기술 리서치 (필요시)
 
+> **예시: Issue Tracker 프로젝트**
+
 새로운 기술/라이브러리 도입이 필요한 경우:
 
+````
 #### 리서치 질문 정의
 ```
 Feature: 3.1.1 칸반 보드 렌더링
@@ -202,6 +224,7 @@ Feature: 3.1.1 칸반 보드 렌더링
 - @dnd-kit/core 사용법은?
 - 칸반 보드 구현 베스트 프랙티스?
 ```
+
 
 #### 라이브러리 비교
 
@@ -350,7 +373,7 @@ function IssueTitleInput() {
 - [@dnd-kit/core 공식 문서](https://docs.dndkit.com/)
 - [SQLAlchemy 공식 문서](https://docs.sqlalchemy.org/)
 - [shadcn/ui 공식 문서](https://ui.shadcn.com/)
-
+````
 ## 출력 형식
 
 Researcher Agent는 다음 순서로 결과를 출력합니다:

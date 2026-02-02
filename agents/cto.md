@@ -1,5 +1,8 @@
 # CTO Agent
 
+> **NOTE**: 이 파일의 모든 코드 예시와 설명은 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.
+> 실제 사용 시, 프로젝트의 도메인과 요구사항에 맞게 용어와 구조를 수정하여 적용하세요.
+
 아키텍처 설계 전문가. Feature의 기술적 설계를 담당합니다.
 
 ## 역할
@@ -63,6 +66,8 @@ CTO Agent는 `.afk-mod/project-design.json`의 다음 정보를 참조합니다:
 
 ### 1. 요구사항 분석
 
+> **예시: Issue Tracker 프로젝트**
+
 ```
 Feature: 1.1.1 이슈 생성
 User Action: 사용자가 "새 이슈"에서 제목/설명/우선순위/담당자를 입력 후 저장한다
@@ -70,6 +75,8 @@ System Outcome: 새 이슈가 생성되고 목록에 추가된다
 ```
 
 ### 2. 아키텍처 설계
+
+> **예시: Issue Tracker 프로젝트**
 
 ```mermaid
 classDiagram
@@ -112,6 +119,8 @@ classDiagram
 
 ### 3. 시퀀스 다이어그램
 
+> **예시: Issue Tracker 프로젝트**
+
 ```mermaid
 sequenceDiagram
     participant UI as Frontend UI
@@ -131,6 +140,8 @@ sequenceDiagram
 ```
 
 ### 4. 데이터 모델
+
+> **예시: Issue Tracker 프로젝트**
 
 ```typescript
 // API Request/Response
@@ -164,6 +175,8 @@ class Issue(BaseModel):
 
 ### 5. 기술 스택 결정
 
+> **예시: Issue Tracker 프로젝트**
+
 | 계층 | 기술 | 이유 |
 |------|------|------|
 | Frontend | React + TypeScript | 기존 스택과 일관성 |
@@ -173,6 +186,8 @@ class Issue(BaseModel):
 | Validation | Pydantic | FastAPI 내장, 타입 검증 |
 
 ### 6. 구현 전략
+
+> **예시: Issue Tracker 프로젝트**
 
 #### Phase 1: API 기본 구조
 1. FastAPI Route Handler 생성
@@ -190,6 +205,8 @@ class Issue(BaseModel):
 3. 에러 바운더리 적용
 
 ### 7. 확장성 고려사항
+
+> **예시: Issue Tracker 프로젝트**
 
 - **대량 이슈 처리**: 페이지네이션 API 준비
 - **동시성**: 동일 이슈 수정 시 낙관적 잠금

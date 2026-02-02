@@ -1,4 +1,5 @@
 {
+  "_comment": "NOTE: 이 파일은 Issue Tracker 프로젝트를 기반으로 한 예시 Feature List입니다. 실제 사용 시, 프로젝트의 도메인과 요구사항에 맞게 내용을 수정하여 적용하세요.",
   "version": "1.0",
   "metadata": {
     "projectName": "Issue Tracker",

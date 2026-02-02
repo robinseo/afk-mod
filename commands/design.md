@@ -1,5 +1,8 @@
 # /afk:design
 
+> **NOTE**: 이 파일의 모든 예시 대화는 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.
+> 실제 사용 시, 프로젝트의 도메인과 요구사항에 맞게 용어와 구조를 수정하여 적용하세요.
+
 프로젝트 설계를 수행하는 가장 첫 번째 명령어입니다. Feature List를 분석하여 아키텍처와 기술 스택을 결정합니다.
 
 ## 사용자 플로우
@@ -311,25 +314,30 @@ flowchart LR
 
 ### 설계 시작 시
 
-````json
+````
+```json
 {
   "projectDesignStatus": "in_progress",
   "lastUpdated": "2025-02-02T10:00:00Z"
 }
+```
 ````
 
 ### 설계 완료 시
 
-````json
+````
+```json
 {
   "projectDesignStatus": "completed",
   "lastUpdated": "2025-02-02T12:00:00Z"
 }
+```
 ````
 
 ## project-design.json 스키마
 
-````json
+````
+```json
 {
   "project": {
     "name": "Issue Tracker",
@@ -433,6 +441,7 @@ flowchart LR
     }
   ]
 }
+```
 ````
 
 ## 에이전트 참조

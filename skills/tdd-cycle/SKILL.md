@@ -1,5 +1,8 @@
 # TDD Cycle
 
+> **NOTE**: 이 파일의 모든 코드 예시와 설명은 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.
+> 실제 사용 시, 프로젝트의 도메인과 요구사항에 맞게 용어와 구조를 수정하여 적용하세요.
+
 Test-Driven Development의 Red-Green-Refactor 사이클을 따릅니다.
 
 ## TDD 사이클
@@ -16,6 +19,8 @@ flowchart LR
 ```
 
 ## 1. RED: 실패하는 테스트 작성
+
+> **예시: Issue Tracker 프로젝트**
 
 ### 원칙
 - **항상** 테스트를 먼저 작성합니다
@@ -54,6 +59,8 @@ describe('IssueService.createIssue', () => {
 
 ## 2. GREEN: 테스트 통과 구현
 
+> **예시: Issue Tracker 프로젝트**
+
 ### 원칙
 - **최소한의 코드**만 작성하여 테스트를 통과합니다
 - 완벽한 구현이 아니어도 됨
@@ -83,6 +90,8 @@ export class IssueService {
 ---
 
 ## 3. REFACTOR: 코드 정리
+
+> **예시: Issue Tracker 프로젝트**
 
 ### 원칙
 - 테스트가 **계속 통과**하는 상태를 유지합니다
@@ -203,6 +212,8 @@ flowchart TD
 ---
 
 ## 테스트 예제
+
+> **예시: Issue Tracker 프로젝트**
 
 ### 단위 테스트
 

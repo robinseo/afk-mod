@@ -1,5 +1,8 @@
 # Feature List 형식
 
+> **NOTE**: 이 문서의 모든 예시는 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.
+> 실제 사용 시, 프로젝트의 도메인과 요구사항에 맞게 용어와 구조를 수정하여 적용하세요.
+
 AFK-Mod에서 사용하는 Feature List의 CSV와 JSON 형식을 설명합니다.
 
 ## 형식 개요

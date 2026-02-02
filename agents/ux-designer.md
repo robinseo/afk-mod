@@ -1,5 +1,8 @@
 # UX Designer Agent
 
+> **NOTE**: 이 파일의 모든 코드 예시와 설명은 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.
+> 실제 사용 시, 프로젝트의 도메인과 요구사항에 맞게 용어와 구조를 수정하여 적용하세요.
+
 UX/UI 디자인 전문가. Feature의 사용자 경험을 설계할 때 호출합니다.
 
 ## 역할
@@ -49,6 +52,8 @@ UX Designer Agent는 `.afk-mod/project-design.json`의 다음 정보를 참조�
 
 ### 1. 요구사항 분석
 
+> **예시: Issue Tracker 프로젝트**
+
 ```
 Feature: 1.1.1 이슈 생성
 User Action: 사용자가 "새 이슈"에서 제목/설명/우선순위/담당자를 입력 후 저장한다
@@ -56,6 +61,8 @@ System Outcome: 새 이슈가 생성되고 목록에 추가된다
 ```
 
 ### 2. 사용자 흐름 설계
+
+> **예시: Issue Tracker 프로젝트**
 
 ```mermaid
 flowchart TD
@@ -76,6 +83,8 @@ flowchart TD
 ```
 
 ### 3. UI 와이어프레임
+
+> **예시: Issue Tracker 프로젝트**
 
 ```markdown
 ┌─────────────────────────────────────────────┐
@@ -108,6 +117,8 @@ flowchart TD
 
 ### 4. UI 컴포넌트 목록
 
+> **예시: Issue Tracker 프로젝트**
+
 - `IssueForm`: 이슈 생성/수정 폼
 - `TextInput`: shadcn/ui Input 컴포넌트
 - `TextArea`: shadcn/ui Textarea 컴포넌트
@@ -116,6 +127,8 @@ flowchart TD
 - `SaveCancelButton`: 저장/취소 버튼 그룹
 
 ### 5. 상태 관리
+
+> **예시: Issue Tracker 프로젝트**
 
 ```typescript
 interface IssueFormState {
@@ -131,12 +144,16 @@ interface IssueFormState {
 
 ### 6. 접근성 고려사항
 
+> **예시: Issue Tracker 프로젝트**
+
 - 폼 필드에 적절한 label 연결
 - 필수 항목(*) 표시
 - 에러 메시지를 screen reader에 제공
 - 키보드 네비게이션 지원
 
 ### 7. 사용성 고려사항
+
+> **예시: Issue Tracker 프로젝트**
 
 - 제목 중복 허용 (검사하지 않음)
 - 자동 저장 (임시 저장)

@@ -1,5 +1,8 @@
 # /afk:start <feature-id>
 
+> **NOTE**: 이 파일의 모든 예시 대화는 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.
+> 실제 사용 시, 프로젝트의 도메인과 요구사항에 맞게 용어와 구조를 수정하여 적용하세요.
+
 Feature를 시작하고 **자동 TDD 사이클**을 실행합니다.
 
 ## 동작
@@ -68,7 +71,7 @@ Research를 건너뛰고 바로 시작하시겠습니까?
 
 **이미 진행 중인 Feature를 다시 시작할 경우, 재진입 안내를 제공합니다.**
 
-```
+````
 사용자> /afk:start 1.1.1
 
 클로드코드> Feature 1.1.1을 시작합니다.
@@ -86,11 +89,11 @@ Research를 건너뛰고 바로 시작하시겠습니까?
 TDD Phase: 🔄 REFACTOR 진행 중
 
 ### TDD 사이클 상태
-\```
+```
 ✅ RED    → 테스트 작성 완료
 ✅ GREEN  → 최소 구현 완료
 🔄 REFACTOR → 코드 정리 진행 중
-\```
+```
 
 ### 마지막 작업
 - 타입 정의 추가
@@ -111,16 +114,16 @@ TDD Phase: 🔄 REFACTOR 진행 중
 ## REFACTOR 단계 재개
 
 테스트 실행 결과:
-\```
+```
 PASS src/services/__tests__/IssueService.test.ts
   ✓ should create an issue with valid input
   ✓ should throw error when title is empty
   ✓ should throw error when title contains only whitespace
   ✓ should throw error when description is empty
-\```
+```
 
 ✓ **REFACTOR 완료**: Task 1이 완료되었습니다.
-```
+````
 
 ### 1.5.1단계: 재진입 옵션별 동작
 

@@ -1,5 +1,8 @@
 # Test Writer Agent
 
+> **NOTE**: 이 파일의 모든 코드 예시와 설명은 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.
+> 실제 사용 시, 프로젝트의 도메인과 요구사항에 맞게 용어와 구조를 수정하여 적용하세요.
+
 TDD 사이클의 **RED 단계** 전문 Agent. 실패하는 테스트를 먼저 작성합니다.
 
 ## 역할
@@ -64,6 +67,8 @@ Test Writer Agent는 `.afk-mod/project-design.json`의 다음 정보를 참조�
 
 ### 1. Task 분석
 
+> **예시: Issue Tracker 프로젝트**
+
 ```
 Task: 이슈 생성 기능 구현
 Acceptance Criteria:
@@ -72,6 +77,8 @@ Acceptance Criteria:
 ```
 
 ### 2. 테스트 케이스 정의
+
+> **예시: Issue Tracker 프로젝트**
 
 ```markdown
 ## Test Cases
@@ -91,6 +98,8 @@ Acceptance Criteria:
 ```
 
 ### 3. 테스트 파일 생성
+
+> **예시: Issue Tracker 프로젝트**
 
 #### Frontend (Vitest)
 
@@ -196,6 +205,8 @@ class TestIssueCreation:
 
 ### 4. 테스트 실행
 
+> **예시: Issue Tracker 프로젝트**
+
 ```bash
 # Frontend
 npm test -- IssueService.test.ts
@@ -221,6 +232,8 @@ Test Writer Agent는 다음 순서로 결과를 출력합니다:
 
 ### 1. 테스트 케이스 정의
 
+> **예시: Issue Tracker 프로젝트**
+
 ```markdown
 ## Test Cases for IssueService.createIssue
 
@@ -242,7 +255,9 @@ Test Writer Agent는 다음 순서로 결과를 출력합니다:
 
 ### 3. 테스트 실행 결과
 
-```markdown
+> **예시: Issue Tracker 프로젝트**
+
+````
 ````
 FAIL src/services/__tests__/IssueService.test.ts
   IssueService.createIssue
@@ -258,6 +273,8 @@ FAIL src/services/__tests__/IssueService.test.ts
 ````
 
 ### 4. state.json 업데이트
+
+> **예시: Issue Tracker 프로젝트**
 
 ```json
 {
@@ -281,6 +298,8 @@ FAIL src/services/__tests__/IssueService.test.ts
 ```
 
 ## 테스트 작성 가이드라인
+
+> **예시: Issue Tracker 프로젝트**
 
 ### 좋은 테스트의 특징
 
@@ -338,6 +357,8 @@ it('should throw error when title is empty', async () => {
 ```
 
 ## 파일 구조
+
+> **예시: Issue Tracker 프로젝트**
 
 ```
 project/

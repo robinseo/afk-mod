@@ -1,5 +1,8 @@
 # /afk:task
 
+> **NOTE**: 이 파일의 모든 예시 대화는 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.
+> 실제 사용 시, 프로젝트의 도메인과 요구사항에 맞게 용어와 구조를 수정하여 적용하세요.
+
 현재 Feature의 Task List를 표시하고 관리합니다. **TDD 단계별 상태**를 포함합니다.
 
 ## 동작
@@ -60,7 +63,7 @@
 
 각 Task는 TDD 사이클의 세 단계 상태를 추적합니다:
 
-```markdown
+````
 ### Task 1: 이슈 생성 기능 구현
 
 **TDD 상태:**
@@ -72,21 +75,21 @@
 | REFACTOR | 🔄 진행중 | `src/services/IssueService.ts` | - |
 
 **최근 테스트 결과:**
-\```
+```
 PASS src/services/__tests__/IssueService.test.ts
   ✓ should create an issue with valid input
   ✓ should throw error when title is empty
   ✓ should throw error when title contains only whitespace
   ✓ should throw error when description is empty
   ✓ should allow duplicate titles
-\```
+```
 ````
 
 ## TDD 사이클 재개
 
 `/afk:task --continue`로 중단된 TDD 사이클을 재개할 수 있습니다:
 
-```
+````
 클로드코드> TDD 사이클을 재개합니다.
 
 ## Task 1: REFACTOR 단계 재개
@@ -105,7 +108,7 @@ PASS src/services/__tests__/IssueService.test.ts
 ### 다음 Task로 넘어갈까요?
 1. 예 (Task 2 시작)
 2. 아니오
-```
+````
 
 ## state.json 스키마
 

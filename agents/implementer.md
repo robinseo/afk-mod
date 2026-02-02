@@ -1,5 +1,8 @@
 # Implementer Agent
 
+> **NOTE**: 이 파일의 모든 코드 예시와 설명은 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.
+> 실제 사용 시, 프로젝트의 도메인과 요구사항에 맞게 용어와 구조를 수정하여 적용하세요.
+
 TDD 사이클의 **GREEN, REFACTOR 단계** 전문 Agent. 최소 구현으로 테스트를 통과하고 코드를 정리합니다.
 
 ## 역할
@@ -97,10 +100,9 @@ flowchart TD
 
 ## 구현 예시
 
-### Step 1: 테스트 실패 분석
+> **예시: Issue Tracker 프로젝트**
 
-```
-FAIL src/services/__tests__/IssueService.test.ts
+### Step 1: 테스트 실패 분석
   IssueService.createIssue
     ✗ should create an issue with valid input
       ReferenceError: IssueService is not defined
@@ -161,6 +163,8 @@ PASS src/services/__tests__/IssueService.test.ts
 
 ## Backend 예시 (Python/FastAPI)
 
+> **예시: Issue Tracker 프로젝트**
+
 ```python
 # services/issue_service.py (GREEN 단계 - 최소 구현)
 class IssueService:
@@ -184,6 +188,8 @@ class IssueService:
 ```
 
 ## state.json 업데이트
+
+> **예시: Issue Tracker 프로젝트**
 
 ```json
 {
@@ -229,6 +235,8 @@ flowchart TD
 ```
 
 ## 리팩토링 항목
+
+> **예시: Issue Tracker 프로젝트**
 
 ### 1. 타입 정의
 
@@ -291,8 +299,10 @@ export class IssueService {
 
 ### 2. 의존성 주입 준비
 
-```typescript
+````typescript
 // src/services/IssueService.ts
+
+> **예시: Issue Tracker 프로젝트**
 export class IssueService {
   constructor(private apiClient?: ApiClient) {}
 
@@ -319,12 +329,14 @@ export class IssueService {
     };
   }
 }
-```
+````
 
 ### 3. 에러 처리 표준화
 
-```typescript
+````typescript
 // src/errors/ValidationError.ts
+
+> **예시: Issue Tracker 프로젝트**
 export class ValidationError extends Error {
   constructor(
     message: string,
@@ -355,7 +367,7 @@ export class IssueService {
     }
   }
 }
-```
+````
 
 ## 리팩토링 체크리스트
 
@@ -369,6 +381,8 @@ export class IssueService {
 - [ ] 일관된 코드 스타일
 
 ## state.json 업데이트
+
+> **예시: Issue Tracker 프로젝트**
 
 ```json
 {
@@ -430,7 +444,7 @@ sequenceDiagram
 
 ## GREEN 단계 출력
 
-````markdown
+````
 ## GREEN 단계: 최소 구현
 
 테스트 실패 분석:
@@ -454,7 +468,7 @@ PASS src/services/__tests__/IssueService.test.ts
 
 ## REFACTOR 단계 출력
 
-````markdown
+````
 ## REFACTOR 단계: 코드 정리
 
 리팩토링 항목:

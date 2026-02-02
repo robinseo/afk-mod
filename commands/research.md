@@ -1,5 +1,8 @@
 # /afk:research <feature-id>
 
+> **NOTE**: 이 파일의 모든 예시 대화는 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.
+> 실제 사용 시, 프로젝트의 도메인과 요구사항에 맞게 용어와 구조를 수정하여 적용하세요.
+
 **STAGE 2: RESEARCH** - Feature 구현을 위한 프로젝트 구조와 기존 코드 패턴을 분석합니다.
 
 ## 동작
@@ -126,7 +129,7 @@ const createMutation = useMutation(IssueService.createIssue, {
 - Backend: Pytest
 - 테스트 파일 위치: `__tests__/` 또는 `test_` 접두사
 
-```typescript
+````typescript
 // 테스트 패턴 예시
 describe('IssueService', () => {
   it('should create an issue with valid input', async () => {
@@ -139,12 +142,13 @@ describe('IssueService', () => {
       .rejects.toThrow(ValidationError);
   });
 });
-```
+````
 
 ---
 
 ### 의존성 확인
 
+```
 #### Frontend 의존성
 - **Framework**: React 18.2.0
 - **Build**: Vite 4.3.0
@@ -158,11 +162,13 @@ describe('IssueService', () => {
 - **ORM**: SQLAlchemy 2.0.0
 - **Database**: PostgreSQL (psycopg2 2.9.0)
 - **Testing**: pytest 7.3.0
+```
 
 ---
 
 ### 구현 난이도 평가
 
+```
 #### 복잡도: 중간
 
 **예상 소요 시간**: 2시간
@@ -178,11 +184,13 @@ describe('IssueService', () => {
 - ✅ React Query 설치됨
 - ✅ shadcn/ui 컴포넌트 사용 가능
 - ⚠️ `ValidationError` 클래스 import 경로 확인 필요
+```
 
 ---
 
 ### 추천 접근 방식
 
+```
 #### 1. 기존 코드 확장 전략
 - `IssueService` 클래스에 `createIssue()` 메서드 추가
 - 기존 `IssueForm` 컴포넌트 재사용
@@ -197,6 +205,7 @@ describe('IssueService', () => {
 2. Frontend Service 메서드 구현 (Vitest로 테스트)
 3. UI 컴포넌트 연동
 4. 전체 통합 테스트
+```
 
 ---
 

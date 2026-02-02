@@ -1,5 +1,8 @@
 # 워크플로우 상세
 
+> **NOTE**: 이 문서의 모든 예시 대화는 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.
+> 실제 사용 시, 프로젝트의 도메인과 요구사항에 맞게 용어와 구조를 수정하여 적용하세요.
+
 AFK-Mod의 전체 개발 워크플로우를 상세히 설명합니다.
 
 ## 6단계 TDD 워크플로우
@@ -26,6 +29,8 @@ flowchart TD
 
 ### STAGE 1: Feature Refinement
 
+> **예시: Issue Tracker 프로젝트**
+
 **명령어**: `/afk:design`
 
 **Input**: 원본 요구사항
@@ -49,6 +54,8 @@ AC3: 설명이 비어있으면 ValidationError가 발생한다
 
 ### STAGE 2: Research
 
+> **예시: Issue Tracker 프로젝트**
+
 **명령어**: `/afk:research <feature-id>`
 
 **Output**: 리서치 보고서
@@ -57,7 +64,7 @@ AC3: 설명이 비어있으면 ValidationError가 발생한다
 - 의존성 및 기술 스택 확인
 - 구현 난이도 평가
 
-```
+````
 사용자> /afk:research 1.1.1
 
 클로드코드> ## STAGE 2: RESEARCH
@@ -83,7 +90,7 @@ AC3: 설명이 비어있으면 ValidationError가 발생한다
 3. API 엔드포인트는 api/app/api/issues/에 추가
 
 ✅ Research 완료. 이제 /afk:start 1.1.1로 TDD를 시작하세요.
-```
+````
 
 ### STAGE 3: Architecture Design
 
@@ -96,7 +103,7 @@ AC3: 설명이 비어있으면 ValidationError가 발생한다
 
 **Gate**: 사용자 아키텍처 선택
 
-```
+````
 사용자> /afk:design
 
 클로드코드> ## 아키텍처 옵션
@@ -114,7 +121,7 @@ AC3: 설명이 비어있으면 ValidationError가 발생한다
 - 단점: 복잡도 증가
 
 어떤 아키텍처를 선택하시겠습니까?
-```
+````
 
 ### STAGE 4: TEST CASE (RED Phase)
 
@@ -123,7 +130,7 @@ AC3: 설명이 비어있으면 ValidationError가 발생한다
 - 구현 전에 테스트 먼저 작성
 - 모든 테스트가 실패해야 함 (RED)
 
-```
+````
 클로드코드> ## RED 단계: 테스트 작성
 
 Test Writer Agent가 테스트를 작성합니다.
@@ -136,12 +143,12 @@ Test Writer Agent가 테스트를 작성합니다.
 `src/services/__tests__/IssueService.test.ts` 생성 완료
 
 테스트 실행 결과:
-\```
+```
 FAIL src/services/__tests__/IssueService.test.ts
   IssueService.createIssue
     ✗ should create an issue with valid input
       ReferenceError: IssueService is not defined
-\```
+```
 
 ✓ RED 단계 완료: 테스트가 예상대로 실패했습니다.
 ````
@@ -159,13 +166,13 @@ FAIL src/services/__tests__/IssueService.test.ts
 Implementer Agent가 최소 구현을 작성합니다.
 
 테스트 실행 결과:
-\```
+```
 PASS src/services/__tests__/IssueService.test.ts
   ✓ should create an issue with valid input
   ✓ should throw error when title is empty
   ✓ should throw error when title contains only whitespace
   ✓ should throw error when description is empty
-\```
+```
 
 ✓ GREEN 단계 완료: 모든 테스트 통과
 ````
@@ -182,13 +189,13 @@ PASS src/services/__tests__/IssueService.test.ts
 클로드코드> ## TEST VERIFICATION
 
 전체 테스트 스위트 실행 결과:
-\```
+```
 PASS src/services/__tests__/IssueService.test.ts
 PASS src/components/__tests__/IssueForm.test.ts
 PASS api/tests/test_issues.py
 
 All tests passed! (15/15)
-\```
+```
 
 ✓ TEST VERIFICATION 완료: ALL GREEN 확인
 ````
