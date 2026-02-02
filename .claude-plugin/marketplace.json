@@ -1,0 +1,10 @@
+{
+  "name": "AFK-Mod",
+  "description": "Feature-based development workflow plugin for Claude Code. TDD 사이클을 따르며, Feature List를 기반으로 체계적인 소프트웨어 개발을 지원합니다.",
+  "plugins": [
+    {
+      "name": "afk-mod",
+      "path": "./"
+    }
+  ]
+}
