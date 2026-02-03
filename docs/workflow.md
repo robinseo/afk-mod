@@ -1,553 +1,285 @@
 # 워크플로우 상세
 
-> **NOTE**: 이 문서의 모든 예시 대화는 **Issue Tracker 프로젝트**를 기반으로 한 예시입니다.
-> 실제 사용 시, 프로젝트의 도메인과 요구사항에 맞게 용어와 구조를 수정하여 적용하세요.
+AFK의 전체 개발 워크플로우를 상세히 설명합니다.
 
-AFK-Mod의 전체 개발 워크플로우를 상세히 설명합니다.
+## 4단계 워크플로우
 
-## 6단계 TDD 워크플로우
-
-AFK-Mod는 6단계 TDD 워크플로우를 따릅니다:
+AFK는 4단계 워크플로우를 따릅니다:
 
 ```mermaid
 flowchart TD
-    A["STAGE 1: Feature Refinement<br/>/afk:design"] --> B["STAGE 2: Research<br/>/afk:research"]
-    B --> C["STAGE 3: Architecture Design<br/>/afk:design"]
-    C --> D["STAGE 4: RED<br/>Test Writer"]
-    D --> E["STAGE 5: GREEN<br/>Implementer"]
-    E --> F["STAGE 6: Test Verification<br/>All Green Check"]
-    F --> G[WORKFLOW COMPLETE]
+    A["PHASE 1: 초기화<br/>/afk:init"] --> B["PHASE 2: Feature 분해<br/>/afk:feature-decompose"]
+    B --> C["PHASE 3: 설계<br/>4단계 설계"]
+    C --> D["PHASE 4: 개발<br/>/afk:start"]
 
     style A fill:#e1f5fe
     style B fill:#fff3e0
     style C fill:#f3e5f5
-    style D fill:#ffebee
-    style E fill:#e8f5e9
-    style F fill:#e0f2f1
-    style G fill:#c8e6c9
+    style D fill:#e8f5e9
 ```
 
-### STAGE 1: Feature Refinement
+## PHASE 1: 초기화
 
-> **예시: Issue Tracker 프로젝트**
+**명령어**: `/afk:init`
 
-**명령어**: `/afk:design`
+프로젝트를 초기화하고 `.afk-mod/` 디렉토리를 생성합니다.
 
-**Input**: 원본 요구사항
-**Output**: 수락기준(AC) 포함 피처 명세서
-**Gate**: 사용자 승인 필요
+### 생성되는 파일
 
-```
-사용자> /afk:design
+```mermaid
+graph TD
+    A[".afk-mod/"] --> B["project-info.json"]
+    A --> C["state.json"]
+    A --> D["tasks/"]
 
-클로드코드> Feature 1.1.1: 이슈 생성
-
-## 수락기준 (Acceptance Criteria)
-AC1: 사용자는 제목, 설명, 우선순위, 담당자를 입력하여 이슈를 생성할 수 있다
-AC2: 제목이 비어있으면 ValidationError가 발생한다
-AC3: 설명이 비어있으면 ValidationError가 발생한다
-
-승인하시겠습니까?
-1. Accept
-2. Decline
+    B --> B1["프로젝트 이름, 목적"]
+    C --> C1["워크플로우 상태"]
+    D --> D1["Task 저장소"]
 ```
 
-### STAGE 2: Research
+### 사용 예시
 
-> **예시: Issue Tracker 프로젝트**
+```
+사용자> /afk:init
 
-**명령어**: `/afk:research <feature-id>`
+클로드코드> AFK 프로젝트를 초기화합니다.
 
-**Output**: 리서치 보고서
-- 프로젝트 구조 파악
-- 기존 코드 패턴 분석
-- 의존성 및 기술 스택 확인
-- 구현 난이도 평가
+프로젝트 정보를 입력해주세요:
 
-````
-사용자> /afk:research 1.1.1
+1. **프로젝트 이름**: my-awesome-app
+2. **프로젝트 목적**: 사용자가 이슈를 추적할 수 있는 웹 애플리케이션
 
-클로드코드> ## STAGE 2: RESEARCH
+✅ 초기화 완료!
 
-### 프로젝트 구조 분석
-- 현재 파일: web/src/services/, api/app/api/
-- 관련 컴포넌트: IssueForm, IssueList, IssueService
+## 생성된 파일
+- .afk-mod/project-info.json
+- .afk-mod/state.json
+- .afk-mod/tasks/
 
-### 기존 코드 패턴
-- Service Layer: API 호출은 Service 클래스에서 담당
-- State: React Query로 서버 상태 관리
-- Error: ValidationError 커스텀 클래스 사용
-- Testing: Vitest (Frontend), Pytest (Backend)
+## 다음 단계
+1. feature-list.csv를 .afk-mod/에 복사하세요
+2. /afk:feature-decompose를 실행하세요
+```
 
-### 구현 난이도 평가
-- 복잡도: 중간
-- 예상 소요 시간: 2시간
-- 선행 작업: 없음
+---
 
-### 추천 접근 방식
-1. 기존 IssueService 확장
-2. 테스트는 web/src/services/__tests__/에 작성
-3. API 엔드포인트는 api/app/api/issues/에 추가
+## PHASE 2: Feature 분해
 
-✅ Research 완료. 이제 /afk:start 1.1.1로 TDD를 시작하세요.
-````
+**명령어**: `/afk:feature-decompose`
 
-### STAGE 3: Architecture Design
+Feature를 4단계 프로세스로 분해하여 Task로 변환합니다.
 
-**명령어**: `/afk:design`
+### 4단계 프로세스
 
-**Output**: 2~4개 아키텍처 옵션
-- 각 옵션별 장단점
-- 비교 매트릭스
-- 추천 옵션
+```mermaid
+flowchart TD
+    A["1단계: 아키텍처 설계"] --> B["2단계: 디자인 설계"]
+    B --> C["3단계: 환경설정"]
+    C --> D["4단계: Task 분해"]
 
-**Gate**: 사용자 아키텍처 선택
+    style A fill:#e1f5fe
+    style B fill:#fff3e0
+    style C fill:#f3e5f5
+    style D fill:#e8f5e9
+```
 
-````
-사용자> /afk:design
+#### 1단계: 아키텍처 설계
 
-클로드코드> ## 아키텍처 옵션
+사용자와 핑퐁하면서 기술 아키텍처를 결정합니다.
 
-### Option 1: 2-tier (Frontend + Backend + Database)
-- 장점: 관리 용이, 팀 분업 용이
-- 단점: 네트워크 지연
+**질문 항목:**
 
-### Option 2: 1-tier (Frontend only + Local Storage)
-- 장점: 빠른 프로토타이핑
-- 단점: 확장성 제한
+1. **데이터베이스**: PostgreSQL, MySQL, MongoDB, SQLite?
+2. **실시간 기능**: WebSocket/SSE 필요 여부
+3. **인증/인가**: JWT, OAuth, Session?
+4. **API 스타일**: REST, GraphQL, tRPC?
+5. **배포 환경**: Vercel, AWS, Docker?
+6. **외부 서비스**: 사용할 API나 서비스
+7. **아키텍처 패턴**: Monolith, Microservices, Serverless?
 
-### Option 3: 3-tier (Frontend + API Gateway + Backend + Database)
-- 장점: 확장성, 보안
-- 단점: 복잡도 증가
+**결과물:** `.afk-mod/architecture-design.md`
 
-어떤 아키텍처를 선택하시겠습니까?
-````
+#### 2단계: 디자인 설계
 
-### STAGE 4: TEST CASE (RED Phase)
+UI/UX 디자인을 설계합니다.
 
-**명령어**: `/afk:start <feature-id>`
+**질문 항목:**
 
-- 구현 전에 테스트 먼저 작성
-- 모든 테스트가 실패해야 함 (RED)
+1. **디자인 시스템**: shadcn/ui, Chakra UI, Material UI, Tailwind CSS?
+2. **다크 모드**: 지원 여부
+3. **모바일 지원**: 반응형, PWA?
+4. **색상 테마**: 브랜드 색상
+5. **레이아웃 스타일**: 사이드바, 탭, 카드?
+6. **애니메이션**: 사용 정도
 
-````
-클로드코드> ## RED 단계: 테스트 작성
+**결과물:** `.afk-mod/design-design.md`
+
+#### 3단계: 환경설정
+
+개발 환경을 설정합니다.
+
+**질문 항목:**
+
+1. **언어**: TypeScript, JavaScript, Python?
+2. **프레임워크**: React, Next.js, Vue, Express, FastAPI?
+3. **패키지 매니저**: npm, yarn, pnpm, bun?
+4. **테스트 도구**: Jest, Vitest, Playwright, Cypress?
+5. **코드 품질**: ESLint, Prettier, Biome?
+6. **CI/CD**: GitHub Actions, GitLab CI?
+
+**결과물:** `.afk-mod/environment-setup.md`
+
+#### 4단계: Task 분해
+
+Feature를 fine-grained Task로 분해하고 그룹화합니다.
+
+**Task 분해 전략:**
+
+- 각 Task는 30분 ~ 2시간 내 완료 가능
+- 관련 Task는 같은 그룹 (최대 5-7개)
+- 넘버링: Feature ID 기반 (예: 1.1.1.1)
+- 의존성: blockedBy 명시
+
+**결과물:**
+
+- `.afk-mod/tasks/task-groups.json` - 전체 Task 그룹 구조
+- `.afk-mod/tasks/tg-*.json` - 각 Task 그룹별 상세 Task
+
+---
+
+## PHASE 3: TDD 사이클
+
+**명령어**: `/afk:start <task-id>`
+
+Task를 시작하고 TDD 사이클을 실행합니다.
+
+### RED → GREEN → REFACTOR
+
+```mermaid
+flowchart LR
+    A["RED<br/>테스트 작성"] --> B["GREEN<br/>최소 구현"]
+    B --> C["REFACTOR<br/>코드 정리"]
+
+    style A fill:#ffebee
+    style B fill:#e8f5e9
+    style C fill:#e0f2f1
+```
+
+### RED 단계
 
 Test Writer Agent가 테스트를 작성합니다.
 
+````
+## RED 단계: 테스트 작성
+
 테스트 케이스 정의:
 - 정상 입력으로 이슈 생성 성공
-- 빈 제목으로 이슈 생성 시도 → ValidationError
-- 빈 설명으로 이슈 생성 시도 → ValidationError
+- 빈 제목으로 ValidationError
+- 빈 설명으로 ValidationError
 
-`src/services/__tests__/IssueService.test.ts` 생성 완료
+`src/components/__tests__/LoginForm.test.tsx` 생성 완료
 
 테스트 실행 결과:
 ```
-FAIL src/services/__tests__/IssueService.test.ts
-  IssueService.createIssue
-    ✗ should create an issue with valid input
-      ReferenceError: IssueService is not defined
+FAIL src/components/__tests__/LoginForm.test.tsx
+  ✗ should render login button
+    ReferenceError: LoginForm is not defined
 ```
 
 ✓ RED 단계 완료: 테스트가 예상대로 실패했습니다.
 ````
 
-### STAGE 5: IMPLEMENTATION (GREEN Phase)
-
-**명령어**: `/afk:start <feature-id>` (자동 진행)
-
-- 테스트를 통과시키는 최소한의 코드 작성
-- 점진적 구현
-
-````
-클로드코드> ## GREEN 단계: 최소 구현
+### GREEN 단계
 
 Implementer Agent가 최소 구현을 작성합니다.
 
+````
+## GREEN 단계: 최소 구현
+
 테스트 실행 결과:
 ```
-PASS src/services/__tests__/IssueService.test.ts
-  ✓ should create an issue with valid input
-  ✓ should throw error when title is empty
-  ✓ should throw error when title contains only whitespace
-  ✓ should throw error when description is empty
+PASS src/components/__tests__/LoginForm.test.tsx
+  ✓ should render email input field
+  ✓ should render password input field
+  ✓ should render login button
 ```
 
 ✓ GREEN 단계 완료: 모든 테스트 통과
 ````
 
-### STAGE 6: TEST VERIFICATION
+### REFACTOR 단계
 
-**명령어**: `/afk:start <feature-id>` (자동 진행)
-
-- 전체 테스트 스위트 실행
-- ALL GREEN 확인
-- 실패 시 Stage 5로 회귀 (최대 3회)
+Implementer Agent가 코드를 정리합니다.
 
 ````
-클로드코드> ## TEST VERIFICATION
+## REFACTOR 단계: 코드 정리
 
-전체 테스트 스위트 실행 결과:
+리팩토링 항목:
+1. 타입 정의 추가
+2. 이벤트 핸들러 분리
+3. 스타일 분리
+
+테스트 실행 결과:
 ```
-PASS src/services/__tests__/IssueService.test.ts
-PASS src/components/__tests__/IssueForm.test.ts
-PASS api/tests/test_issues.py
-
-All tests passed! (15/15)
+PASS src/components/__tests__/LoginForm.test.tsx
+  ✓ 모든 테스트 통과
 ```
 
-✓ TEST VERIFICATION 완료: ALL GREEN 확인
+✓ REFACTOR 단계 완료: 테스트 통과 유지
 ````
 
-### Human-in-the-Loop 지점
+---
+
+## Human-in-the-Loop 지점
 
 ```
-AFK-Mod 6단계 워크플로우:
-1. AC 승인 (/afk:design) ✓
-2. Research 완료 (/afk:research) ✓
-3. 아키텍처 선택 (/afk:design) ✓
-4. RED → GREEN → REFACTOR (자동 진행)
-5. Task 완료 승인 (/afk:start) ✓
+AFK 워크플로우:
+1. 초기화 (/afk:init) ✓
+2. Feature 분해 (/afk:feature-decompose) ✓
+   - 아키텍처 설계 (사용자 승인)
+   - 디자인 설계 (사용자 승인)
+   - 환경설정 (사용자 승인)
+   - Task 분해 (사용자 승인)
+3. RED → GREEN → REFACTOR (자동 진행)
+4. Task 완료 후 다음 Task 승인
 ```
+
+---
 
 ## 전체 워크플로우
 
 ```mermaid
 flowchart TD
-    A[시작] --> B[설치 및 설정]
-    B --> C[Feature List 준비]
+    A[시작] --> B["/afk:init<br/>프로젝트 초기화"]
+    B --> C["feature-list.csv<br/>복사"]
+    C --> D["/afk:feature-decompose<br/>4단계 Feature 분해"]
 
-    C --> D["afk:design<br/>STAGE 1: Feature Refinement"]
-    D --> E[AC 포함 피처 명세서]
-    E --> F["afk:design<br/>STAGE 3: Architecture Design"]
-    F --> G[project_design_json 생성]
+    D --> E["1단계: 아키텍처 설계"]
+    E --> F["2단계: 디자인 설계"]
+    F --> G["3단계: 환경설정"]
+    G --> H["4단계: Task 분해"]
 
-    G --> H{개발 시작}
-    H --> I["afk:research<br/>STAGE 2: Research"]
-    I --> J[리서치 보고서]
+    H --> I["/afk:start <task-id><br/>TDD 사이클 시작"]
+    I --> J["RED: 테스트 작성"]
+    J --> K["GREEN: 최소 구현"]
+    K --> L["REFACTOR: 코드 정리"]
 
-    J --> K["afk:start<br/>STAGE 4: RED"]
-    K --> L["afk:start<br/>STAGE 5: GREEN"]
-    L --> M["afk:start<br/>STAGE 6: Test Verification"]
+    L --> M{Task 완료?}
+    M -->|아니오| K
+    M -->|예| N{다음 Task?}
 
-    M --> N{완료?}
-    N -->|아니오| L
-    N -->|예| O{다음 Feature?}
+    N -->|예| I
+    N -->|아니오| O[완료]
 
-    O -->|예| H
-    O -->|아니오| P[완료]
-
-    G -.->|Feature 변경| Q{"afk:reload<br/>갱신"}
-    Q --> H
+    L -.->|중단| P["/afk:checkin"]
+    P --> I
 ```
 
-## Phase 1: 준비 단계
-
-```mermaid
-flowchart TD
-    A[Phase 1: 준비] --> B[플러그인 설치]
-    B --> C[Feature List 준비]
-
-    C --> D{준비 방법}
-    D -->|CSV| E[feature_list_csv]
-    D -->|JSON| F[feature_list_json]
-    D -->|대화형| G[afk_design]
-
-    E --> H[afk_design]
-    F --> H
-    G --> H
-```
-
-### 1.1 플러그인 설치
-
-```mermaid
-sequenceDiagram
-    participant U as 사용자
-    participant R as 저장소
-    participant P as 프로젝트
-    participant C as Claude Code
-
-    U->>R: AFK-Mod 복사
-    R->>P: .claude-plugin/ 복사
-    U->>P: commands/ 복사
-    U->>P: agents/ 복사
-    P->>C: 플러그인 로드
-    C-->>U: 설치 완료
-```
-
-### 1.2 Feature List 준비
-
-```mermaid
-flowchart LR
-    subgraph CSV 방식
-        A1[기존 CSV] --> B1[afk_mod_dir 복사]
-        B1 --> C1[afk_design]
-        C1 --> D1[자동 JSON 변환]
-    end
-
-    subgraph JSON 방식
-        A2[기존 JSON] --> B2[afk_mod_dir 복사]
-        B2 --> C2[afk_design]
-    end
-
-    subgraph 대화형 방식
-        A3[afk_design] --> B3[클로드코드와 대화]
-        B3 --> C3[feature_list_json 생성]
-    end
-```
-
-## Phase 2: 설계 단계
-
-```mermaid
-flowchart TD
-    A[Phase 2: 설계] --> B[afk_design 실행]
-
-    B --> C[Feature List 분석]
-    C --> D[카테고리 파악]
-    D --> E[기능적 요구사항 추론]
-
-    E --> F[아키텍처 결정]
-    F --> F1[2-tier]
-    F --> F2[1-tier]
-    F --> F3[3-tier]
-
-    F1 --> G[기술 스택 결정]
-    F2 --> G
-    F3 --> G
-
-    G --> H[Frontend 기술]
-    G --> I[Backend 기술]
-
-    H --> J[UI 라이브러리]
-    I --> K[Database 선택]
-
-    J --> L[최종 설계 문서]
-    K --> L
-
-    L --> M{승인?}
-    M -->|아니오| G
-    M -->|예| N[project_design_json 저장]
-```
-
-### 2.1 설계 프로세스 상세
-
-```mermaid
-stateDiagram-v2
-    [*] --> Feature분석: afk_design
-    Feature분석 --> 카테고리파악
-    카테고리파악 --> 요구사항추론
-
-    요구사항추론 --> 아키텍처제안
-    아키텍처제안 --> 사용자선택: 2-tier/1-tier/3-tier
-
-    사용자선택 --> Frontend기술
-    Frontend기술 --> UI라이브러리
-
-    사용자선택 --> Backend기술
-    Backend기술 --> Database
-
-    UI라이브러리 --> 설계승인
-    Database --> 설계승인
-
-    설계승인 --> 저장: Accept
-    설계승인 --> Frontend기술: Decline
-
-    저장 --> [*]: project_design_json
-```
-
-## Phase 3: 개발 단계 (6단계 TDD 워크플로우)
-
-```mermaid
-flowchart TD
-    A[Phase 3: 개발] --> B[Feature 선택]
-
-    B --> C["STAGE 2: Research<br/>/afk:research"]
-    C --> D[리서치 보고서]
-
-    D --> E["STAGE 4: RED<br/>/afk:start"]
-    E --> F["STAGE 5: GREEN<br/>/afk:start"]
-    F --> G["STAGE 6: Test Verification<br/>/afk:start"]
-
-    G --> H{완료?}
-    H -->|진행중| F
-    H -->|완료| I{다음 Task?}
-
-    I -->|예| E
-    I -->|아니오| J[Feature 완료]
-```
-
-### 3.1 단순 Feature vs 복잡 Feature
-
-```mermaid
-graph TD
-    A[Feature 시작] --> B{복잡도 판단}
-
-    B -->|단순| C[즉시 Task 분해]
-    C --> D[Task List 제안]
-    D --> E[승인 후 저장]
-
-    B -->|복잡| F[에이전트 호출]
-
-    F --> G[UX Designer]
-    F --> H[CTO]
-    F --> I[Researcher]
-
-    G --> J[사용자 흐름 설계]
-    H --> K[아키텍처 설계]
-    I --> L[기술 리서치]
-
-    J --> M[종합 분석]
-    K --> M
-    L --> M
-
-    M --> N[Task List 제안]
-    N --> O[승인 후 저장]
-```
-
-### 3.2 Task 실행 흐름
-
-```mermaid
-flowchart LR
-    A[Task List] --> B[의존성 분석]
-    B --> C[병렬 그룹 생성]
-
-    C --> D[그룹 1<br/>실행 가능]
-    C --> E[그룹 2<br/>blockedBy 그룹1]
-    C --> F[그룹 3<br/>blockedBy 그룹2]
-
-    D --> G[병렬 실행]
-    G --> H[그룹 1 완료]
-
-    H --> E
-    E --> I[그룹 2 실행]
-    I --> J[그룹 2 완료]
-
-    J --> F
-    F --> K[그룹 3 실행]
-    K --> L[모두 완료]
-```
-
-## Phase 4: 관리 단계
-
-```mermaid
-flowchart TD
-    A[Phase 4: 관리] --> B{관리 작업}
-
-    B -->|Feature 조회| C[afk_feature_list]
-    B -->|상태 갱신| D[afk_reload]
-    B -->|Task 관리| E[afk_task]
-    B -->|Feature 추출| F[afk_extract]
-
-    C --> G[Markdown 표 표시]
-    D --> H[feature_list_json 재로드]
-    E --> I[Task 상태 관리]
-    F --> J[코드베이스 분석]
-```
-
-## 반복 워크플로우
-
-```mermaid
-flowchart LR
-    A[Feature 완료] --> B{다음 Feature?}
-    B -->|예| C["/afk:research"]
-    B -->|아니오| D[완료]
-
-    C --> E["/afk:start"]
-    E --> F["STAGE 4~6 TDD 사이클"]
-
-    F -.->|중단| G["/afk:checkin"]
-    G --> F
-
-    F -.->|Feature 변경| H["/afk:reload"]
-    H --> C
-```
-
-## 에이전트 협업 워크플로우
-
-6단계 TDD 워크플로우에서 에이전트 간 협업 흐름입니다.
-
-```mermaid
-sequenceDiagram
-    participant U as 사용자
-    participant C as Claude Code
-    participant R as Researcher
-    participant TW as Test Writer
-    participant IMP as Implementer
-
-    U->>C: /afk:research <feature-id>
-    C->>R: STAGE 2 Research 요청
-    R-->>C: 리서치 보고서
-    C-->>U: Research 완료
-
-    U->>C: /afk:start <feature-id>
-
-    C->>TW: STAGE 4 RED 시작
-    TW->>TW: 테스트 작성
-    TW-->>C: RED 완료 (테스트 실패)
-
-    C->>IMP: STAGE 5 GREEN 시작
-    IMP->>IMP: 최소 구현
-    IMP-->>C: GREEN 완료 (테스트 통과)
-
-    C->>IMP: STAGE 6 Test Verification
-    IMP->>IMP: 전체 테스트 실행
-    IMP-->>C: ALL GREEN 확인
-    C-->>U: Feature 완료
-```
-
-## 상태 관리 워크플로우
-
-```mermaid
-stateDiagram-v2
-    [*] --> STAGE1: Feature 생성
-    STAGE1 --> STAGE3: AC 승인 완료
-
-    STAGE3 --> STAGE2: 아키텍처 선택 완료
-    STAGE2 --> STAGE4: Research 완료
-
-    STAGE4 --> STAGE5: RED 완료
-    STAGE5 --> STAGE6: GREEN 완료
-
-    STAGE6 --> STAGE6: Test 재실행 (실패 시)
-    STAGE6 --> DONE: ALL GREEN
-
-    DONE --> [*]
-
-    note right of STAGE1
-        /afk:design
-        Feature Refinement
-    end note
-
-    note right of STAGE2
-        /afk:research
-        Research
-    end note
-
-    note right of STAGE3
-        /afk:design
-        Architecture Design
-    end note
-
-    note right of STAGE4
-        /afk:start
-        RED (Test Writer)
-    end note
-
-    note right of STAGE5
-        /afk:start
-        GREEN (Implementer)
-    end note
-
-    note right of STAGE6
-        /afk:start
-        Test Verification
-    end note
-```
+---
 
 ## 세션 재개 워크플로우
 
-사용자가 중간에 작업을 중단했다가 다시 돌아왔을 때의 워크플로우입니다.
+중간에 작업을 중단했다가 다시 돌아왔을 때:
 
 ```mermaid
 flowchart TD
@@ -555,36 +287,28 @@ flowchart TD
     B --> C{state.json<br/>존재?}
 
     C -->|아니오| D[새로 시작 안내]
-    D --> E["/afk:design 또는<br/>/afk:start"]
+    D --> E["/afk:init으로<br/>시작"]
 
     C -->|예| F[현재 상태 로드]
-    F --> G[currentFeature 확인]
-    G --> H{currentTask<br/>있음?}
+    F --> G{workflow 상태}
 
-    H -->|아니오| I[Feature 시작 전]
-    I --> J["/afk:research 권장"]
+    G -->|initialized| H["feature-list.csv 복사 안내"]
+    G -->|ready_to_develop| I["/afk:start 권장"]
+    G -->|task_in_progress| J[TDD Phase 확인]
 
-    H -->|예| K[TDD Phase 확인]
-    K --> L{Phase 상태}
-
-    L -->|RED 진행중| M[테스트 작성 재개]
-    L -->|GREEN 진행중| N[구현 재개]
-    L -->|REFACTOR 진행중| O[코드 정리 재개]
-    L -->|완료됨| P[다음 Task 안내]
-
-    M --> Q[재개 옵션 제시]
-    N --> Q
-    O --> Q
-    P --> Q
+    J --> K{Phase 상태}
+    K -->|RED| L[테스트 작성 재개]
+    K -->|GREEN| M[구현 재개]
+    K -->|REFACTOR| N[코드 정리 재개]
 ```
 
-### /afk:checkin 사용 시나리오
+### /afk:checkin 사용 예시
 
-```
+````
 [첫 번째 세션 - 작업 진행 중]
 사용자> /afk:start 1.1.1
 ... TDD 사이클 진행 ...
-[중단 - 작업 중이던 REFACTOR 단계]
+[중단 - REFACTOR 단계]
 
 [두 번째 세션 - 재접속 후]
 사용자> /afk:checkin
@@ -592,28 +316,73 @@ flowchart TD
 클로드코드> 👋 다시 오셨군요!
 
 ## 📊 현재 작업 중
-### Feature 1.1.1: 이슈 생성
-**Task 1**: REFACTOR 진행 중
+### Task 1.1.1: 로그인 폼 UI 구현
+**TDD Phase**: 🔄 REFACTOR 진행 중
 
 ## 🚀 다음 단계
 1. 계속하기 - REFACTOR 완료
 2. 검토하기 - 현재 코드 확인
+````
+
+---
+
+## 에이전트 협업 워크플로우
+
+```mermaid
+sequenceDiagram
+    participant U as 사용자
+    participant C as Claude Code
+    participant TW as Test Writer
+    participant IMP as Implementer
+
+    U->>C: /afk:start <task-id>
+
+    C->>TW: RED 단계 시작
+    TW->>TW: 테스트 작성
+    TW-->>C: RED 완료 (테스트 실패)
+
+    C->>IMP: GREEN 단계 시작
+    IMP->>IMP: 최소 구현
+    IMP-->>C: GREEN 완료 (테스트 통과)
+
+    C->>IMP: REFACTOR 단계 시작
+    IMP->>IMP: 코드 정리
+    IMP-->>C: REFACTOR 완료
+    C-->>U: Task 완료
 ```
 
-### /afk:start 재진입 감지
+---
 
+## 상태 관리 워크플로우
+
+```mermaid
+stateDiagram-v2
+    [*] --> INIT
+    note right of INIT
+      cmd: /afk:init
+    end note
+
+    INIT --> AWAITING: 초기화 완료
+
+    AWAITING --> FEATURE_DECOMPOSE: feature-list.csv 복사
+    FEATURE_DECOMPOSE --> ARCH: 아키텍처 설계
+    ARCH --> DESIGN: 디자인 설계
+    DESIGN --> ENV: 환경설정
+    ENV --> TASK_DECOMPOSE: Task 분해
+
+    TASK_DECOMPOSE --> READY: 분해 완료
+    READY --> TASK_IN_PROGRESS
+    note right of TASK_IN_PROGRESS
+      cmd: /afk:start
+    end note
+
+    TASK_IN_PROGRESS --> RED: RED 시작
+    RED --> GREEN: RED 완료
+    GREEN --> REFACTOR: GREEN 완료
+    REFACTOR --> TASK_COMPLETED: REFACTOR 완료
+
+    TASK_COMPLETED --> READY: 다음 Task
+    TASK_COMPLETED --> ALL_COMPLETED: 모든 Task 완료
+
+    ALL_COMPLETED --> [*]
 ```
-사용자> /afk:start 1.1.1
-
-클로드코드> ⚠️ 이 Feature는 이미 진행 중입니다.
-
-## 현재 상태
-- Task 1: REFACTOR 단계 진행 중
-- 마지막 작업: 코드 정리 진행
-
-어디서부터 다시 시작할까요?
-1. 중단된 지점부터 계속
-2. 처음부터 다시 시작
-3. 취소
-```
-

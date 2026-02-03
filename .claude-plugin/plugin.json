@@ -1,5 +1,6 @@
 {
-  "name": "afk-mod",
-  "description": "AFK MOD",
-  "version": "0.2.0"
+  "name": "afk",
+  "description": "AFK - AI-augmented Feature development Kit",
+  "version": "0.3.0",
+  "hooks": "hooks.json"
 }

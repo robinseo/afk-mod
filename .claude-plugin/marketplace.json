@@ -5,7 +5,7 @@
   },
   "plugins": [
     {
-      "name": "afk-mod",
+      "name": "afk",
       "source": {
         "source": "url",
         "url": "https://github.com/robinseo/afk-mod.git"
