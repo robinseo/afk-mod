@@ -36,29 +36,36 @@ flowchart TD
 
 ### 1. 플러그인 설치
 
-**로컬 플러그인으로 설치:**
-
-```bash
-# 방법 1: 플러그인 디렉토리로 Claude Code 실행
-cd /path/to/your-project
-claude --plugin-dir /Users/robin/repos/afk-mod
-
-# 방법 2: 전역 설치 (선택)
-mkdir -p ~/.claude/plugins
-cp -r /Users/robin/repos/afk-mod ~/.claude/plugins/afk-mod
-
-# 방법 3: 심볼릭 링크 (권장 - 개발 중 업데이트 즉시 반영)
-ln -s /Users/robin/repos/afk-mod ~/.claude/plugins/afk-mod
+```mermaid
+flowchart LR
+    A[마켓플레이스 추가] --> B[플러그인 설치]
+    B --> C[명령어 확인]
+    C --> D[설치 완료]
 ```
 
-**Claude Code 설정 파일에 추가 (선택):**
+**마켓플레이스에서 설치:**
+
+```bash
+# 1. 마켓플레이스 추가
+/plugin marketplace add https://github.com/robinseo/afk-mod
+
+# 2. 플러그인 설치
+/plugin install afk-mod
+
+# 3. 설치 확인
+/help
+```
+
+**팀 프로젝트에서 자동 설치:**
+
+저장소의 `.claude/settings.json`에 추가하면 팀 멤버가 자동으로 플러그인을 설치받습니다:
 
 ```json
 {
   "plugins": [
     {
       "name": "afk-mod",
-      "path": "/Users/robin/repos/afk-mod"
+      "marketplace": "https://github.com/robinseo/afk-mod"
     }
   ]
 }
