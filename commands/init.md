@@ -31,7 +31,7 @@ allowed-tools:
   "projectName": "[사용자가 입력한 프로젝트 이름]",
   "description": "[사용자가 입력한 프로젝트 목적]",
   "createdAt": "[현재 ISO8601 타임스탬프]",
-  "version": "0.3.1"
+  "version": "0.3.2"
 }
 ```
 
@@ -39,7 +39,7 @@ allowed-tools:
 
 ```json
 {
-  "version": "0.3.1",
+  "version": "0.3.2",
   "project": {
     "name": "[프로젝트 이름]",
     "description": "[프로젝트 목적]",
