@@ -1,6 +1,5 @@
 {
   "name": "afk",
   "description": "AFK - AI-augmented Feature development Kit",
-  "version": "0.3.0",
-  "hooks": "hooks.json"
+  "version": "0.3.1"
 }

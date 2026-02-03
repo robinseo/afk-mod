@@ -43,8 +43,7 @@ AFK가 포함된 마켓플레이스를 추가합니다:
 {
   "plugins": [
     {
-      "name": "afk",
-      "marketplace": "https://github.com/robinseo/afk-mod"
+      "name": "afk"
     }
   ]
 }

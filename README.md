@@ -176,7 +176,8 @@ afk-mod/
 ├── .claude-plugin/              # 플러그인 설정
 │   ├── plugin.json              # 플러그인 정보
 │   ├── marketplace.json         # 마켓플레이스 정보
-│   └── hooks.json               # 워크플로우 강제 Hook
+│   └── hooks/
+│       └── hooks.json           # 워크플로우 강제 Hook
 ├── .afk-mod/                    # 작업 디렉토리 (프로젝트마다 생성)
 │   ├── project-info.json        # 프로젝트 기본 정보
 │   ├── feature-list.csv         # Feature List
