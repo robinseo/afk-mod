@@ -7,8 +7,8 @@
     {
       "name": "afk-mod",
       "source": {
-        "source": "github",
-        "repo": "robinseo/afk-mod"
+        "source": "git",
+        "repo": "https://github.com/robinseo/afk-mod.git"
       }
     }
   ]
