@@ -1,9 +1,5 @@
 {
   "name": "afk-mod",
-  "version": "0.2.0",
-  "description": "AFK-Squad TDD 기반 Feature 개발 워크플로우 플러그인",
-  "author": "Robin Seo",
-  "commands": ["commands/"],
-  "agents": ["agents/"],
-  "skills": ["skills/"]
+  "description": "AFK MOD",
+  "version": "0.2.0"
 }
